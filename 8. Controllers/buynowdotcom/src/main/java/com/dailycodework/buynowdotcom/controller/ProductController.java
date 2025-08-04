@@ -110,7 +110,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/{by-brand}")
-    public ResponseEntity<ApiResponse> getProductByBrand(@PathVariable("by-brand") String productBrand) {
+    public ResponseEntity<ApiResponse> getProductByBrand(@RequestParam String productBrand) {
         try {
             List<Product> products = productService.getProductsByBrand(productBrand);
             List<ProductDto> convertedProducts = productService.getConvertedProducts(products);
